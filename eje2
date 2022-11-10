@@ -1,0 +1,11 @@
+
+# Visualizamos la distribución de las variables
+
+columnas = ['x', 'y', 'z', 'carat', 'depth']
+
+for col in columnas:
+    fig, ax =plt.subplots(1, 2, figsize=(10, 4))
+    fig.suptitle(col, fontsize=18)
+    sns.distplot(data_frame[col], ax=ax[0], kde=False)
+    data_frame2[[col]+['price']].plot.scatter(x=col, y='price', ax=ax[1])
+    plt.show()
